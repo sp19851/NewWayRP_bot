@@ -1,1 +1,1 @@
-worker: python NewWayPR_Bot.py
+worker: python NewWayRP_Bot.py
