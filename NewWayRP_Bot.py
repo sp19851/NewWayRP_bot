@@ -88,7 +88,7 @@ async def text (ctx, *, text):
     await ctx.message.delete()
 
 
-#bot.run('') 
-token = os.environ.get('BOT_TOKEN')
-bot.run(str(token))
+bot.run('ODU2MjE0NjkwNTkzNTA1MzIw.YM9yEQ.LmrB6JotIrHLFC74G36KW89SfyM') 
+#token = os.environ.get('BOT_TOKEN')
+#bot.run(str(token))
 
