@@ -25,18 +25,18 @@ async def on_ready():
 async def on_member_join(member):
     #channel = bot.get_channel(856867016346828820)
     #await channel.edit(name = 'Member count: {}'.format(channel.guild.member_count))
-    role = discord.utils.get(member.guild.roles, name = 'Новичок')
+    role = discord.utils.get(member.guild.roles, name = 'Р‘Р»СѓРґРЅС‹Р№ СЃС‹РЅ')
     await member.add_roles(role)
     wellcome_table = discord.Embed (title="", url="https://realdrewdata.medium.com/", description="", color=0x2ecc71) 
-    wellcome_table.set_author(name="Бортпроводник", url="", icon_url="")
+    wellcome_table.set_author(name="Р‘РѕСЂС‚РїСЂРѕРІРѕРґРЅРёРє", url="", icon_url="")
     wellcome_table.set_thumbnail(url='https://blog.aci.aero/wp-content/uploads/2019/03/shutterstock_745544935-952x635.jpg')
-    wellcome_table.add_field(name="В штат прибыл рейс №", value = "{}".format(random.randint(10000, 99990)), inline=False)
-    wellcome_table.add_field(name="Просьба пропустить пассажира бизнес класса ", value = "{}".format(member), inline=False)
+    wellcome_table.add_field(name="Р’ С€С‚Р°С‚ РїСЂРёР±С‹Р» СЂРµР№СЃ в„–", value = "{}".format(random.randint(10000, 99990)), inline=False)
+    wellcome_table.add_field(name="РџСЂРѕСЃСЊР±Р° РїСЂРѕРїСѓСЃС‚РёС‚СЊ РїР°СЃСЃР°Р¶РёСЂР° Р±РёР·РЅРµСЃ РєР»Р°СЃСЃР°  ", value = "{}".format(member), inline=False)
     wellcome_table.set_footer(text="NewWayRP AirLines")
     channel = bot.get_channel(856432895752404998)
     await channel.send(embed = wellcome_table)
     #await channel.send("{} joined to server! Role: {}".format(member, role.name))
-    await  member.send("Вы joined to server {}!  Role: {}".format(member.guild.name, role.name))
+    await  member.send("You joined to server {}!  Role: {}".format(member.guild.name, role.name))
     print("{} joined to server! Role: {}".format(member, role.id))
 
 
@@ -52,17 +52,17 @@ async def on_member_remove(member):
     channel = bot.get_channel(856432895752404998)
     await channel.send("{} leave from server!".format(member.name))
     By_table = discord.Embed (title="", url="https://realdrewdata.medium.com/", description="", color=0xFF5733) 
-    By_table.set_author(name="Бортпроводник", url="", icon_url="")
+    By_table.set_author(name="Р‘РѕСЂС‚РїСЂРѕРІРѕРґРЅРёРє", url="", icon_url="")
     By_table.set_thumbnail(url='https://img3.goodfon.ru/wallpaper/nbig/5/d8/art-samolet-polet-solnce-nebo.jpg')
-    By_table.add_field(name="Штат готовиться покинуть рейс №", value = "{}".format(random.randint(10000, 99990)), inline=False)
-    By_table.add_field(name="Просьба уступить место пассажиру ", value = "{}".format(member), inline=False)
+    By_table.add_field(name="РЁС‚Р°С‚ РїРѕРєРёРґР°РµС‚ СЂРµР№СЃ в„–", value = "{}".format(random.randint(10000, 99990)), inline=False)
+    By_table.add_field(name="РџСЂРѕСЃСЊР±Р° СѓСЃС‚СѓРїРёС‚СЊ РјРµСЃС‚Рѕ РїР°СЃСЃР°Р¶РёСЂСѓ ", value = "{}".format(member), inline=False)
     By_table.set_footer(text="NewWayRP AirLines")
     await channel.send(embed = By_table)
     print("{} leave from server!".format(member))
 
 
 
-# роль по нажатию реакции
+# Г°Г®Г«Гј ГЇГ® Г­Г Г¦Г ГІГЁГѕ Г°ГҐГ ГЄГ¶ГЁГЁ
 @bot.event
 #async def on_reaction_add(reaction, user):
 async def on_raw_reaction_add(payload):
@@ -77,11 +77,11 @@ async def on_raw_reaction_add(payload):
     else:
     #if payload.emoji == '??':
       print("done")
-      role = discord.utils.get(user.guild.roles, name = 'Ваще огонь')
-    #rol = discord.utils.get(guild.roles, name="Ваще огонь")
+      role = discord.utils.get(user.guild.roles, name = 'РџСѓС‚РЅРёРє')
+    #rol = discord.utils.get(guild.roles, name="Г‚Г Г№ГҐ Г®ГЈГ®Г­Гј")
       await user.add_roles(role)
 
-#команда для вывода текста от имени бота с удалением самой команды       
+#ГЄГ®Г¬Г Г­Г¤Г  Г¤Г«Гї ГўГ»ГўГ®Г¤Г  ГІГҐГЄГ±ГІГ  Г®ГІ ГЁГ¬ГҐГ­ГЁ ГЎГ®ГІГ  Г± ГіГ¤Г Г«ГҐГ­ГЁГҐГ¬ Г±Г Г¬Г®Г© ГЄГ®Г¬Г Г­Г¤Г»       
 @bot.command()
 async def text (ctx, *, text):
     await ctx.send(f'{text}')
