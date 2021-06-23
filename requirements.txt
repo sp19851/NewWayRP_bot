@@ -1,4 +1,7 @@
 discord.py
+random
+os
+asyncio
 aiottp
 websockers
 chardet
