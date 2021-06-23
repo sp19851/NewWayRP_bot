@@ -71,7 +71,7 @@ async def on_raw_reaction_add(payload):
     #reaction = discord.utils.get(message.reactions, emoji=var_emoji)
     #print (reaction, var_emoji, payload.emoji.name, payload.emoji.id, payload.emoji)
     user = payload.member
-    ChID = 857317948589604914
+    ChID = 857320946330763275
     if message.id != ChID:
         return;
     else:
