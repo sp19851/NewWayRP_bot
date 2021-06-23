@@ -33,7 +33,7 @@ async def on_member_join(member):
     wellcome_table.add_field(name="В штат прибыл рейс №", value = "{}".format(random.randint(10000, 99990)), inline=False)
     wellcome_table.add_field(name="Просьба пропустить пассажира бизнес класса  ", value = "{}".format(member), inline=False)
     wellcome_table.set_footer(text="NewWayRP AirLines")
-    channel = bot.get_channel(856432895752404998)
+    channel = bot.get_channel(743753916574859345)
     await channel.send(embed = wellcome_table)
     #await channel.send("{} joined to server! Role: {}".format(member, role.name))
     await  member.send("You joined to server {}!  Role: {}".format(member.guild.name, role.name))
@@ -49,7 +49,7 @@ async def on_member_remove(member):
     #channel = bot.get_channel(856867016346828820)
     #print ('chan', channel)
     #await channel.edit(name = 'Member count: {}'.format(channel.guild.member_count))
-    channel = bot.get_channel(856432895752404998)
+    channel = bot.get_channel(743753916574859345)
     await channel.send("{} leave from server!".format(member.name))
     By_table = discord.Embed (title="", url="https://realdrewdata.medium.com/", description="", color=0xFF5733) 
     By_table.set_author(name="Бортпроводник", url="", icon_url="")
@@ -71,7 +71,7 @@ async def on_raw_reaction_add(payload):
     #reaction = discord.utils.get(message.reactions, emoji=var_emoji)
     #print (reaction, var_emoji, payload.emoji.name, payload.emoji.id, payload.emoji)
     user = payload.member
-    ChID = 856820333473824770
+    ChID = 857317948589604914
     if message.id != ChID:
         return;
     else:
