@@ -1,0 +1,1 @@
+worker: python NewWayPR_Bot.py

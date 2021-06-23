@@ -1,0 +1,4 @@
+discord.py
+aiottp
+websockers
+chardet
