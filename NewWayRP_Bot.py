@@ -81,8 +81,29 @@ async def on_raw_reaction_add(payload):
       role = discord.utils.get(user.guild.roles, name = 'Путник')
     #rol = discord.utils.get(guild.roles, name="Âàùå îãîíü")
       await user.add_roles(role)
+        
+# Добавление роли пользователю после нажатия эмоции под его сообщением админитсратором в указанном канале
+@bot.event
+async def on_raw_reaction_add(payload):
+    message = await bot.get_channel(payload.channel_id).fetch_message(payload.message_id)
+    #message.channel.send('ID последнего сообщения: ${message.channel.lastMessageID}')
+    #user = payload.member
+    channel = bot.get_channel(payload.channel_id)
+    user = message.author
+    ch_id = 854074059587059722
+    #@commands.has_permissions(administrator=True)
+    adm = payload.member
+    permissions = adm.guild_permissions
+    is_admin = permissions.administrator
+    if not is_admin:
+        return;
+    if channel.id != ch_id:
+        return;
+    else:
+        role = discord.utils.get(user.guild.roles, name = 'Пилигрим')
+        await user.add_roles(role)
 
-#êîìàíäà äëÿ âûâîäà òåêñòà îò èìåíè áîòà ñ óäàëåíèåì ñàìîé êîìàíäû       
+# Команда написания текста от имени бота  
 @bot.command()
 async def text (ctx, *, text):
     await ctx.send(f'{text}')
@@ -91,5 +112,5 @@ async def text (ctx, *, text):
 
 #bot.run('') 
 token = os.environ.get('BOT_TOKEN')
-#bot.run(str(token))
+bot.run(str(token))
 
