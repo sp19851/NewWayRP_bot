@@ -91,5 +91,5 @@ async def text (ctx, *, text):
 
 #bot.run('') 
 token = os.environ.get('BOT_TOKEN')
-bot.run(str(token))
+#bot.run(str(token))
 
