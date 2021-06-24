@@ -17,6 +17,7 @@ bot = commands.Bot(command_prefix='!', intents = intents)
 async def on_ready():
     activity = discord.Game(name="NewWayRP FiveM", type=3)
     await bot.change_presence(status=discord.Status.idle, activity=activity)
+    await Bot.change_presence(status=discord.Status.online)
     print("Bot is ready")
 
 
