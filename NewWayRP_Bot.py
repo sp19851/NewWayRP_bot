@@ -83,25 +83,25 @@ async def on_raw_reaction_add(payload):
       await user.add_roles(role)
         
 # Добавление роли пользователю после нажатия эмоции под его сообщением админитсратором в указанном канале
-@bot.event
-async def on_raw_reaction_add(payload):
-    message = await bot.get_channel(payload.channel_id).fetch_message(payload.message_id)
-    #message.channel.send('ID последнего сообщения: ${message.channel.lastMessageID}')
-    #user = payload.member
-    channel = bot.get_channel(payload.channel_id)
-    user = message.author
-    ch_id = 854074059587059722
-    #@commands.has_permissions(administrator=True)
-    adm = payload.member
-    permissions = adm.guild_permissions
-    is_admin = permissions.administrator
-    if channel.id != ch_id:
-        return;
-    if not is_admin:
-        return;
-    else:
-        role = discord.utils.get(user.guild.roles, name = 'Пилигрим')
-        await user.add_roles(role)
+#@bot.event
+#async def on_raw_reaction_add(payload):
+#    message = await bot.get_channel(payload.channel_id).fetch_message(payload.message_id)
+#    #message.channel.send('ID последнего сообщения: ${message.channel.lastMessageID}')
+#    #user = payload.member
+#    channel = bot.get_channel(payload.channel_id)
+#    user = message.author
+#    ch_id = 854074059587059722
+#    #@commands.has_permissions(administrator=True)
+#    adm = payload.member
+#    permissions = adm.guild_permissions
+#    is_admin = permissions.administrator
+#    if channel.id != ch_id:
+#        return;
+#    if not is_admin:
+#        return;
+#    else:
+#        role = discord.utils.get(user.guild.roles, name = 'Пилигрим')
+#        await user.add_roles(role)
 
 # Команда написания текста от имени бота  
 @bot.command()
