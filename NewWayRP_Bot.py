@@ -95,9 +95,9 @@ async def on_raw_reaction_add(payload):
     adm = payload.member
     permissions = adm.guild_permissions
     is_admin = permissions.administrator
-    if not is_admin:
-        return;
     if channel.id != ch_id:
+        return;
+    if not is_admin:
         return;
     else:
         role = discord.utils.get(user.guild.roles, name = 'Пилигрим')
