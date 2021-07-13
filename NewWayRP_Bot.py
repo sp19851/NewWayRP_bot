@@ -90,7 +90,19 @@ async def text (ctx, *, text):
     await ctx.send(f'{text}')
     await ctx.message.delete()
 
-
+#Получение именя по id 
+@bot.command()
+async def getuserbyid(ctx, userid: int): 
+  await ctx.message.delete()
+  _member = await ctx.guild.fetch_member(userid)
+  await ctx.send("```id {} использует член сообщества {}```".format(userid, _member))
+  
+@getuserbyid.error
+async def getuserbyid_error(ctx, error):
+  await ctx.send(error)
+  
+  
+  
 token = os.environ.get('BOT_TOKEN')
 bot.run(str(token))
 
