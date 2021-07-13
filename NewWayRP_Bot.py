@@ -7,6 +7,7 @@ from typing import Union
 import random
 import os
 import asyncio
+import traceback
 
 intents = discord.Intents.all()
 #client = discord.Bot(intents = intents)
