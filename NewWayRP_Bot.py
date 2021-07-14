@@ -101,6 +101,24 @@ async def getuserbyid(ctx, userid: int):
 @getuserbyid.error
 async def getuserbyid_error(ctx, error):
   await ctx.send(error)
+
+#Удаление сообщений
+@bot.command()
+async def clearmes(ctx, number):
+  adm = ctx.message.author
+  perms = adm.guild_permissions
+  is_admin = perms.administrator
+  if is_admin:
+    number = int(number) #Converting the amount of messages to delete to an integer
+    ch = ctx.message.channel
+    deleted = await ch.purge(limit = number, check =  clearmes)
+    await ch.send("```{} удалил {} сообщения(й)```".format(adm,len(deleted)))
+  else:
+    return
+
+@clearmes.error
+async def getuserbyid_error(ctx, error):
+  await ctx.send(error)
   
   
   
