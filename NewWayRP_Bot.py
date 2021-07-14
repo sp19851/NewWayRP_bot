@@ -96,7 +96,7 @@ async def text (ctx, *, text):
 async def getuserbyid(ctx, userid: int): 
   await ctx.message.delete()
   _member = await ctx.guild.fetch_member(userid)
-  await ctx.send("```id {} использует член сообщества {}```".format(userid, _member))
+  await ctx.send("```id {} использует член сообщества {}/{}```".format(userid, _member, _member.nick))
   
 @getuserbyid.error
 async def getuserbyid_error(ctx, error):
