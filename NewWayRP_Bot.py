@@ -121,7 +121,7 @@ async def getuserbyid_error(ctx, error):
   await ctx.send(error)
   
   
-  
+#запуск бота  
 token = os.environ.get('BOT_TOKEN')
 bot.run(str(token))
 
