@@ -1,11 +1,13 @@
 #NewWayRP Bot
+##import keep_alive
+import os
 import discord
 from discord.ext import commands
 from discord.ext.commands import Bot
 from discord import embeds
 from typing import Union
 import random
-import os
+
 import asyncio
 import traceback
 
@@ -37,7 +39,7 @@ async def on_member_join(member):
     channel = bot.get_channel(743753916574859345) 
     await channel.send(embed = wellcome_table)
     #await channel.send("{} joined to server! Role: {}".format(member, role.name))
-    await  member.send("You joined to server {}!  Role: {}".format(member.guild.name, role.name))
+    await  member.send("Вы присоединились к серверу {}!  Роль по умолчанию: {}. Что бы получить возможность просматривать больше каналов прочтите правила и поставте галочку.".format(member.guild.name, role.name))
     print("{} joined to server! Role: {}".format(member, role.id))
 
      
@@ -121,7 +123,6 @@ async def getuserbyid_error(ctx, error):
   await ctx.send(error)
   
   
-#запуск бота  
+
 token = os.environ.get('BOT_TOKEN')
 bot.run(str(token))
-
