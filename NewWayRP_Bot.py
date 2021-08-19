@@ -28,7 +28,8 @@ async def on_ready():
 async def on_member_join(member):
     #channel = bot.get_channel(856867016346828820)
     #await channel.edit(name = 'Member count: {}'.format(channel.guild.member_count))
-    role = discord.utils.get(member.guild.roles, name = 'Блудный сын')
+    #role = discord.utils.get(member.guild.roles, name = 'Блудный сын')
+    role = discord.utils.get(member.guild.roles, name = 'Пилигрим')
     await member.add_roles(role)
     wellcome_table = discord.Embed (title="", url="https://realdrewdata.medium.com/", description="", color=0x2ecc71) 
     wellcome_table.set_author(name="Бортпроводник", url="", icon_url="")
