@@ -36,6 +36,7 @@ async def on_member_join(member):
     wellcome_table.set_thumbnail(url='https://blog.aci.aero/wp-content/uploads/2019/03/shutterstock_745544935-952x635.jpg')
     wellcome_table.add_field(name="В штат прибыл рейс №", value = "{}".format(random.randint(10000, 99990)), inline=False)
     wellcome_table.add_field(name="Просьба пропустить пассажира бизнес класса  ", value = "{}".format(member), inline=False)
+    wellcome_table.add_field(name="Ему нашару досталась роль  ", value = "пилигрим. Какой с него теперь спрос", inline=False)
     wellcome_table.set_footer(text="NewWayRP AirLines")
     channel = bot.get_channel(743753916574859345) 
     await channel.send(embed = wellcome_table)
@@ -56,6 +57,7 @@ async def on_member_remove(member):
     By_table.set_thumbnail(url='https://img3.goodfon.ru/wallpaper/nbig/5/d8/art-samolet-polet-solnce-nebo.jpg')
     By_table.add_field(name="Штат покидает рейс №", value = "{}".format(random.randint(10000, 99990)), inline=False)
     By_table.add_field(name="Просьба уступить место пассажиру ", value = "{}".format(member), inline=False)
+    
     By_table.set_footer(text="NewWayRP AirLines")
     await channel.send(embed = By_table)
     print("{} leave from server!".format(member))
