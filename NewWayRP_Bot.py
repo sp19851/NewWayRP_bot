@@ -95,6 +95,9 @@ async def on_raw_reaction_add(payload):
 async def text (ctx, *, text):
     await ctx.send(f'{text}')
     await ctx.message.delete()
+    channel = bot.get_channel(745030601496723528)
+    await channel.send("Пользователь {} c правами {} применил команду{}".format(ctx.member.name, ctx.member.guild_permissions, text))
+    #745030601496723528
 
 #Получение именя по id 
 @bot.command()
