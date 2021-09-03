@@ -29,19 +29,17 @@ async def on_member_join(member):
     #channel = bot.get_channel(856867016346828820)
     #await channel.edit(name = 'Member count: {}'.format(channel.guild.member_count))
     role = discord.utils.get(member.guild.roles, name = 'Блудный сын')
-    #role = discord.utils.get(member.guild.roles, name = 'Пилигрим')
     await member.add_roles(role)
     wellcome_table = discord.Embed (title="", url="https://realdrewdata.medium.com/", description="", color=0x2ecc71) 
     wellcome_table.set_author(name="Бортпроводник", url="", icon_url="")
     wellcome_table.set_thumbnail(url='https://blog.aci.aero/wp-content/uploads/2019/03/shutterstock_745544935-952x635.jpg')
     wellcome_table.add_field(name="В штат прибыл рейс №", value = "{}".format(random.randint(10000, 99990)), inline=False)
     wellcome_table.add_field(name="Просьба пропустить пассажира бизнес класса  ", value = "{}".format(member), inline=False)
-    #wellcome_table.add_field(name="Ему на шару досталась роль пилигрим. ", value = "Какой с него теперь спрос...", inline=False)
     wellcome_table.set_footer(text="NewWayRP AirLines")
     channel = bot.get_channel(743753916574859345) 
     await channel.send(embed = wellcome_table)
     #await channel.send("{} joined to server! Role: {}".format(member, role.name))
-    await  member.send("Вы присоединились к серверу {}!  Роль по умолчанию: {}. Что бы получить возможность просматривать больше каналов прочтите правила и поставте галочку. Для начала игры подайте простую заявку в соответсвующий канал. Квента обязательная только для кандидатов в лидеры".format(member.guild.name, role.name))
+    await  member.send("Вы присоединились к серверу {}!  Роль по умолчанию: {}. Что бы получить возможность просматривать больше каналов прочтите правила и поставте галочку.".format(member.guild.name, role.name))
     print("{} joined to server! Role: {}".format(member, role.id))
 
      
@@ -57,7 +55,6 @@ async def on_member_remove(member):
     By_table.set_thumbnail(url='https://img3.goodfon.ru/wallpaper/nbig/5/d8/art-samolet-polet-solnce-nebo.jpg')
     By_table.add_field(name="Штат покидает рейс №", value = "{}".format(random.randint(10000, 99990)), inline=False)
     By_table.add_field(name="Просьба уступить место пассажиру ", value = "{}".format(member), inline=False)
-    
     By_table.set_footer(text="NewWayRP AirLines")
     await channel.send(embed = By_table)
     print("{} leave from server!".format(member))
@@ -96,8 +93,12 @@ async def text (ctx, *, text):
     await ctx.send(f'{text}')
     await ctx.message.delete()
     channel = bot.get_channel(745030601496723528)
-    await channel.send("Пользователь {} c правами {} применил команду{}".format(ctx.member.name, ctx.member.guild_permissions, text))
-    #745030601496723528
+    is_admin = ctx.author.guild_permissions.administrator
+    print('is_admin', is_admin)
+    if is_admin:
+        await channel.send("Пользователь {} c правами admin применил команду {}".format(ctx.author.name, ctx.message.content))
+    else:
+      await channel.send("Пользователь {} c правами not admin применил команду {}".format(ctx.author.name, ctx.message.content))
 
 #Получение именя по id 
 @bot.command()
@@ -105,6 +106,12 @@ async def getuserbyid(ctx, userid: int):
   await ctx.message.delete()
   _member = await ctx.guild.fetch_member(userid)
   await ctx.send("```id {} использует член сообщества {}/{}```".format(userid, _member, _member.nick))
+  is_admin = ctx.author.guild_permissions.administrator
+  channel = bot.get_channel(745030601496723528)
+  if is_admin:
+      await channel.send("Пользователь {} c правами admin применил команду {}".format(ctx.author.name, ctx.message.content))
+  else:
+      await channel.send("Пользователь {} c правами not admin применил команду {}".format(ctx.author.name, ctx.message.content))
   
 @getuserbyid.error
 async def getuserbyid_error(ctx, error):
@@ -123,6 +130,11 @@ async def clearmes(ctx, number):
     await ch.send("```{} удалил {} сообщения(й)```".format(adm,len(deleted)))
   else:
     return
+  channel = bot.get_channel(745030601496723528)
+  if is_admin:
+      await channel.send("Пользователь {} c правами admin применил команду {}".format(ctx.author.name, ctx.message.content))
+  else:
+      await channel.send("Пользователь {} c правами not admin применил команду {}".format(ctx.author.name, ctx.message.content))
 
 @clearmes.error
 async def getuserbyid_error(ctx, error):
