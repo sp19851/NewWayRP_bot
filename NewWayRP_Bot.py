@@ -39,7 +39,7 @@ async def on_member_join(member):
     channel = bot.get_channel(743753916574859345) 
     await channel.send(embed = wellcome_table)
     #await channel.send("{} joined to server! Role: {}".format(member, role.name))
-    await  member.send("Вы присоединились к серверу {}!  Роль по умолчанию: {}. Что бы получить возможность просматривать больше каналов прочтите правила и поставте галочку.".format(member.guild.name, role.name))
+    await  member.send("Вы присоединились к серверу {}!  Роль по умолчанию: {}. Что бы получить возможность просматривать больше каналов прочтите правила и поставте галочку (реакцию). Для доступа к серверу подайте простую заявку в канал whitelist по образцу".format(member.guild.name, role.name))
     print("{} joined to server! Role: {}".format(member, role.id))
 
      
