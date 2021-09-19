@@ -86,7 +86,7 @@ async def on_raw_reaction_add(payload):
     else:
         return
     
-     channel = bot.get_channel(745030601496723528)
+    channel = bot.get_channel(745030601496723528)
     if is_admin:
         await channel.send("Пользователь {} c правами admin нажал реакцию".format(adm))
     else:
