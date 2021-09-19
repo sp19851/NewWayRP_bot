@@ -61,7 +61,7 @@ async def on_member_remove(member):
 
 
 # Получение роли после нажатия эмоции пользователем под прочтением правил
-channels = [857320946330763275, 854074059587059722]
+channels = [857320946330763275, 883693402204561418]
 @bot.event
 async def on_raw_reaction_add(payload):
     chan = bot.get_channel(payload.channel_id)
@@ -85,6 +85,12 @@ async def on_raw_reaction_add(payload):
         await user2.add_roles(role)
     else:
         return
+    
+     channel = bot.get_channel(745030601496723528)
+    if is_admin:
+        await channel.send("Пользователь {} c правами admin нажал реакцию".format(adm))
+    else:
+        await channel.send("Пользователь {} c правами not admin нажал реакцию {}".format(adm))
 
 
 # Команда написания текста от имени бота      
